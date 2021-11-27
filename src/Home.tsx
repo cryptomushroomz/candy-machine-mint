@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import logo from './pic/Logo1.png';
 
 import * as anchor from "@project-serum/anchor";
 
@@ -18,6 +19,7 @@ import {
   mintOneToken,
   shortenAddress,
 } from "./candy-machine";
+import { deepPurple } from "@material-ui/core/colors";
 
 const ConnectButton = styled(WalletDialogButton)``;
 
@@ -166,23 +168,47 @@ const Home = (props: HomeProps) => {
   ]);
 
   return (
-    <main>
+    <main style={{ 
+       
+      display: "flex",
+      flexDirection: "column",
+      height: "100vh",
+      }}>
+
+      <div style={{padding: 30, display: "flex", flexDirection: "column", flex: 1}}>
+
+
+
+   
+
+
+      
+      <div style={{ 
+      
+      display: "flex",
+      justifyContent:"space-between", 
+      }}>
+      
       {wallet && (
         <p>Wallet {shortenAddress(wallet.publicKey.toBase58() || "")}</p>
-      )}
+      )}      
+      <ConnectButton>{wallet ? "Connected" : "Connect Wallet"}</ConnectButton>
+      
+      </div>
+      
+      <div style={{ 
+    
+      flex: 1,
+      display: "flex",
+      justifyContent: "center", 
+      alignItems: "center",
+      flexDirection: "column" 
+      }}>
 
-      {wallet && <p>Balance: {(balance || 0).toLocaleString()} SOL</p>}
+      
 
-      {wallet && <p>Total Available: {itemsAvailable}</p>}
-
-      {wallet && <p>Redeemed: {itemsRedeemed}</p>}
-
-      {wallet && <p>Remaining: {itemsRemaining}</p>}
-
-      <MintContainer>
-        {!wallet ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
-        ) : (
+      <MintContainer >
+        
           <MintButton
             disabled={isSoldOut || isMinting || !isActive}
             onClick={onMint}
@@ -205,8 +231,19 @@ const Home = (props: HomeProps) => {
               />
             )}
           </MintButton>
-        )}
+        
       </MintContainer>
+      <div>       
+      
+
+      {wallet && <p>Total supply: {itemsRemaining}\{itemsAvailable}</p>}
+
+      {wallet && <p>Freed Mushroomz: {itemsRedeemed}</p>}
+      </div> 
+
+      </div>
+
+      
 
       <Snackbar
         open={alertState.open}
@@ -220,6 +257,7 @@ const Home = (props: HomeProps) => {
           {alertState.message}
         </Alert>
       </Snackbar>
+      </div>
     </main>
   );
 };
