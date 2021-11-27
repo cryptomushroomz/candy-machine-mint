@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-import logo from './pic/Logo1.png';
 
 import * as anchor from "@project-serum/anchor";
 
