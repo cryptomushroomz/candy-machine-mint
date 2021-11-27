@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Countdown from "react-countdown";
 import { Button, CircularProgress, Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import logo from './logo2.jpg';
 
 import * as anchor from "@project-serum/anchor";
 
@@ -204,7 +205,8 @@ const Home = (props: HomeProps) => {
       flexDirection: "column" 
       }}>
 
- 
+      <img alt='logo' src={String(logo)} style={{padding: 30}}/>
+
 
       <MintContainer >
         
@@ -230,7 +232,7 @@ const Home = (props: HomeProps) => {
               />
             )}
           </MintButton>
-        
+          
       </MintContainer>
       <div>       
       
