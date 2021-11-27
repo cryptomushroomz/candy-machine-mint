@@ -205,7 +205,7 @@ const Home = (props: HomeProps) => {
       flexDirection: "column" 
       }}>
 
-      <img src="img_girl.jpg" alt="Girl in a jacket" width="800" height="500"></img>
+ 
 
       <MintContainer >
         
