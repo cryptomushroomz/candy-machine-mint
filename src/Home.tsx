@@ -237,9 +237,8 @@ const Home = (props: HomeProps) => {
       <div>       
       
 
-      {wallet && <p>Total supply: {itemsRemaining}\{itemsAvailable}</p>}
+      {wallet && <p>free some MUSRHOOMZ, join SHROOMZ-DAO and get passive income. </p>}
 
-      {wallet && <p>Freed Mushroomz: {itemsRedeemed}</p>}
       </div> 
 
       </div>
